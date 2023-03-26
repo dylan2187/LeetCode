@@ -16,7 +16,7 @@ function handleClick() {
   console.log('Button clicked!');
 }
 
-const debouncedClickHandler = debounce(handleClick, 500);
+const debouncedClickHandler = debounce(handleClick, 2000);
 
 // 以下代码会在 500ms 后执行 handleClick 函数
 debouncedClickHandler();
