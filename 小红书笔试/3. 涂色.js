@@ -25,7 +25,7 @@
 8 3 6 2
 样例输出：
 8 2 2 0
-
+11
 
  */
 // var __readline = require('readline-sync')
