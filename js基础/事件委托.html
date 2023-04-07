@@ -1,0 +1,32 @@
+<body>
+  <ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>9999</li>
+    <li>10000</li>
+  </ul>
+
+</body>
+
+<script>
+  // var ul = document.getElementById('list');
+  // ul.addEventListener('click', function (event) {
+  //   var target = event.target;
+  //   if (target.nodeName.toLowerCase() === 'li') {
+  //     // 进行相应的处理，比如输出当前点击的li元素的索引值
+  //     console.log(target.innerText);
+  //   }
+  // });
+
+  //事件委托
+  var ul = document.getElementById('list')
+  ul.addEventListener('click', function (event) {
+    var target = event.target
+    if (target.tagName === 'LI') {
+      console.log(target.innerText);
+    }
+  })
+
+</script>
