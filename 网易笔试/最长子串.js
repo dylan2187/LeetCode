@@ -1,3 +1,5 @@
+//给定一个字符串，请你写一个js 方法，找出其中不含有重复字符的最长子串的长度
+//美团面试也问过这道题
 function lengthOfLongestSubstring(str) {
   let maxLength = 0
   let start = 0
