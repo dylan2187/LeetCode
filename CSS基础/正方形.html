@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="square-container">
+
+    <div class="square"></div>
+  </div>
+
+
+</body>
+
+<style>
+  .square-container {
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+  }
+
+  .square1 {
+
+
+    flex: 1 1 auto;
+    /* 设置弹性盒子属性 */
+    max-width: calc(100% - 200px);
+    /* 最大宽度 = 父容器宽度 - 左右两侧间距 */
+    max-height: calc(100vh - 20px);
+    /* 最大高度 = 视口高度 - 上下间距 */
+    margin: 0 100px;
+    /* 左右两侧距离屏幕各有 100px 的间距 */
+    background-color: red;
+    /* 正方形背景颜色 */
+    aspect-ratio: 1/1;
+    /* 长宽比为1:1 */
+
+    /* 也可以这样写，可以不用设置长宽 */
+    /* margin: auto 100px;
+    aspect-ratio: 1/1; */
+
+  }
+
+  .square {
+    background-color: red;
+    width: 100%;
+    margin: auto 100px;
+    /* width: calc(100% - 200px); */
+    aspect-ratio: 1/1;
+  }
+</style>
+
+</html>

@@ -1,11 +1,14 @@
-var arr = [1, 2, 3];
-arrs = arr
-var arr1 = [...arr]
-
-arr === arr1
-arrs === arr
-
-array = [0, 0, 0]
-array.push(...arr)
-array
-
+function deepClone1(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj
+  } //不是引用数据类型，直接返回obj
+  const isArray = Array.isArray(obj)
+  let res = isArray ? [] : {}
+  for (let key in obj) {
+    const value = obj[key]
+    //value是不是构造类型？是的话还要继续对它深拷贝。（typeof null返回值也是'object'）
+    res[key] =
+      typeof value === 'object' && value !== null ? deepClone(value) : value
+  }
+  return res
+}

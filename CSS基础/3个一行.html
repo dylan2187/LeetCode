@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="container">
+      <div class="box" style="background-image:url('pic1.jpg')"></div>
+      <div class="box" style="background-image:url('pic2.jpg')"></div>
+      <div class="box" style="background-image:url('pic3.jpg')"></div>
+      <div class="box" style="background-image:url('pic4.jpg')"></div>
+      <div class="box" style="background-image:url('pic5.jpg')"></div>
+      <div class="box" style="background-image:url('pic6.jpg')"></div>
+      <div class="box" style="background-image:url('pic7.jpg')"></div>
+      <div class="box" style="background-image:url('pic7.jpg')"></div>
+      <div class="box" style="background-image:url('pic7.jpg')"></div>
+    </div>
+  </div>
+
+
+</body>
+<style>
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    width: 1000px;
+    margin: 0 -5px;
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .box {
+
+    flex: 1 0 calc(25% - 20px);
+    aspect-ratio: 1/1;
+    margin: 10px;
+    background-color: #ccc;
+    cursor: pointer;
+    /* background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center; */
+  }
+
+  .box:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+</style>
+
+</html>

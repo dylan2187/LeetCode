@@ -1,0 +1,69 @@
+<!--
+ * @Date: 2023-05-06 22:16:55
+ * @LastEditors: kai && neodylan@foxmail.com
+ * @LastEditTime: 2023-05-06 22:46:50
+ * @FilePath: /LeetCode/CSS基础/点击移动.html
+ 不会做这道题，改天研究一下，用js触发动画效果
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item"></div>
+  </div>
+
+
+</body>
+<style>
+  .container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: #eee;
+  }
+
+  .item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+</style>
+<script>
+  const item = document.querySelector('.item')
+  item.addEventListener('click', function () {
+    // 将元素平移至右上角
+    const container = document.querySelector('.container')
+    const containerWidth = container.offsetWidth
+    const itemWidth = item.offsetWidth
+    const duration = 1000 // 动画时长
+    let startTime = null
+
+    function animate (currentTime) {
+      if (!startTime) {
+        startTime = currentTime
+      }
+      const elapsedTime = currentTime - startTime
+      const progress = Math.min(elapsedTime / duration, 1)
+      const x = containerWidth - itemWidth * progress
+      const y = 0
+      item.style.transform = `translate(${x}px, ${y}px)`
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+  });
+
+</script>
+
+</html>
