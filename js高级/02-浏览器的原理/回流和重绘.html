@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="box">box盒子</div>
+  <button>删除盒子</button>
+
+  <script>
+    var boxEL = document.querySelector('.box')
+    var btnEL = document.querySelector('button')
+    btnEL.onclick = () => {
+      boxEL.remove()
+    }
+  </script>
+
+</body>
+
+</html>
