@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    function foo (x, y, z, m) {
+      console.log('this', this)
+      console.log(this.name, this.age)
+      console.log(x + y + z, m)
+    }
+
+    Function.prototype.myCall = function (context, ...args) {
+
+      context = context || window
+
+      const fn = Symbol('fn')
+      context.fn = this
+      const result = context.fn(...args)
+      delete context.fn
+      return result
+
+    }
+
+    //思路： 把调用的函数对象(this)加到要绑定的上下文中，然后用隐式绑定来运行
+
+    Function.prototype.myApply = function (context, args) {
+
+      // 边界条件1： 确保调用的是函数
+      if (typeof this !== 'function') {
+        throw new TypeError('error')
+      }
+      // 边界条件2： 获取context 并确保context是对象类型
+      context = (context === null || context === undefined) ? window : Object(context)
+      // 边界条件3： context中是否有fn属性/方法
+      const fn = Symbol('fn')
+      context.fn = this
+      const result = context.fn(...args)
+      delete context.fn
+      return result
+    }
+
+
+
+
+
+    Function.prototype.myBind = function (context, ...args) {
+      if (typeof this !== 'function') {
+        return new TypeError('error')
+      }
+      context = (context === null || context === undefined) ? window : Object(context)
+      const fn = Symbol('fn')
+      context.fn = this
+      return function (...innerArgs) {
+        context.fn(...[...args, ...innerArgs])
+      }
+    }
+
+    // foo.myCall({ name: 'wangkai' }, 1, 2, 3)
+    const newFoo = foo.myBind({ name: 'wangkai', age: 18 }, 1, 2, 3)
+    newFoo('qingdao')
+
+
+  </script>
+
+</body>
+
+</html>

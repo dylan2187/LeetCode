@@ -12,3 +12,15 @@ function deepClone1(obj) {
   }
   return res
 }
+
+function deepClone(obj) {
+  if (typeof obj !== 'object' || obj === null) return obj
+
+  let res = Array.isArray(obj) ? [] : {}
+
+  for (let key in obj) {
+    const val = obj[key]
+    res[key] = typeof val === 'object' && val !== null ? deepClone(val) : val
+  }
+  return res
+}
