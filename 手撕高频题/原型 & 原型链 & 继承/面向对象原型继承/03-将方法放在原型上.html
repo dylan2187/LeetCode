@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Student (name, age) {
+      this.name = name
+      this.age = age
+
+    }
+    Student.prototype.sayHi = function () {
+      console.log(`hello, my name is ${this.name}, ${this.age}`)
+    }
+
+    const s1 = new Student('wangkai', 1)
+    const s2 = new Student('dylan', 2)
+    s1.sayHi()
+
+    Student.prototype.address = 'China'
+    s1.__proto__.info = 'qingdao'
+    s1.__proto__.info = 'wuhan'
+    console.log(s2.info)
+  </script>
+</body>
+
+</html>

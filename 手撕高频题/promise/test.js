@@ -1,17 +1,19 @@
-function execCode(data) {
-  return new Promise((resolve, reject) => {
-    if (data > 0) {
-      resolve(data * 10)
-    } else {
-      reject(0)
-    }
-  })
-}
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p1')
+  }, 3000)
+})
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p2')
+  }, 2000)
+})
+const p3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p3')
+  }, 5000)
+})
 
-execCode(100)
-  .then((val) => {
-    console.log('success, ', val)
-  })
-  .catch((val) => {
-    console.log('failed,', val)
-  })
+Promise.all([p1, p2, p3]).then((val) => {
+  console.log(val)
+})

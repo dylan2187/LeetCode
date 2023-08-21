@@ -1,5 +1,6 @@
 new Promise((resolve, reject) => {
   resolve()
+  console.log('hahaha')
   reject()
 })
   .then(() => {
@@ -7,4 +8,7 @@ new Promise((resolve, reject) => {
   })
   .catch(() => {
     console.log('failed')
+  })
+  .finally(() => {
+    console.log('finally')
   })
