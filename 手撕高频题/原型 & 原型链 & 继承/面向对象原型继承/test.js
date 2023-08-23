@@ -1,1 +1,2 @@
-console.log(isNaN('bl'))
+const obj = {}
+console.log(obj.__proto__ === Object.prototype)

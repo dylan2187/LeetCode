@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Parent () {
+      this.name = 'parent1'
+      this.play = [1, 2, 3]
+    }
+    function Child () {
+      this.type = 'child2'
+    }
+    Child.prototype = new Parent()
+    var s1 = new Child()
+    var s2 = new Child()
+    s1.play.push(4)
+    console.log(s2.play)
+    var s3 = new Child()
+    console.log(s3.play === s2.play);
+
+  </script>
+</body>
+
+</html>
