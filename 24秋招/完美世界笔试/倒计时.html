@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>倒计时程序</title>
+</head>
+
+<body>
+  <h1 id="countdown"></h1>
+
+  <script>
+    function time () {
+      // 获取当前日期和时间
+      var currentDate = new Date()
+
+      // 获取当前年份
+      var currentYear = currentDate.getFullYear()
+
+      // 计算下一年的日期
+      var nextYearDate = new Date(currentYear + 1, 0, 1)
+
+      // 计算还剩多少时间
+      var timeRemaining = nextYearDate - currentDate
+
+      // 将毫秒数转换为天、小时、分钟和秒
+      var seconds = Math.floor(timeRemaining / 1000) % 60
+      var minutes = Math.floor(timeRemaining / 1000 / 60) % 60
+      var hours = Math.floor(timeRemaining / 1000 / 60 / 60) % 24
+      var days = Math.floor(timeRemaining / 1000 / 60 / 60 / 24)
+      var res = currentYear + '年还剩' + days + '天' + hours + '小时' + minutes + '分' + seconds + '秒'
+      return res
+    }
+    // 更新倒计时的显示
+    var countdownElement = document.getElementById('countdown')
+    setInterval(() => {
+      countdownElement.innerHTML = time()
+    }, 1000);
+  </script>
+</body>
+
+</html>
