@@ -18,4 +18,12 @@ const debouncedClickHandler = debounce(handleClick, 2000)
 // 以下代码会在 500ms 后执行 handleClick 函数
 debouncedClickHandler()
 
-
+function debounce1(fn, delay) {
+  let timer = null
+  return function (...argus) {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn.apply(this, argus)
+    }, delay)
+  }
+}
