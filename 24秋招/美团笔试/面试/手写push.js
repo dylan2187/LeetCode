@@ -3,6 +3,6 @@ function myPush(arr, item) {
   return item
 }
 
-const arr = [1, 2, 3]
-const res = myPush(arr, 4)
+const arr = [1, 3]
+const res = arr.push([4, 5])
 console.log(res)
