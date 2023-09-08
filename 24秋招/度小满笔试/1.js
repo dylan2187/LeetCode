@@ -1,0 +1,7 @@
+const a4 = new Set()
+a4.add('a').add('b')
+const m1 = a4.delete('a')
+console.log(a4.size)
+console.log('m1', m1)
+const m2 = a4.has('a')
+console.log(m2)
