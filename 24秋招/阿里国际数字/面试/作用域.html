@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var foo = 1
+    function main () {
+      var foo
+      console.log('foo', foo)
+      var foo = 2
+      console.log('foo', foo)
+      console.log('this.foo', this.foo)
+      this.foo = 3
+      console.log('this.foo', this.foo)
+
+    }
+    // 请给出以下两种方式调用函数时，输出的结果，并说明原因。
+
+    // var m1 = main()
+    /*
+    当你调用 `main()` 时，它被当作一个普通的函数来调用，所以函数内部的 `this` 实际上是指向全局对象（在浏览器中即 `window`）。这就是为什么 `this.foo` 输出 `1`，因为 `var foo = 1` 实际上在全局声明了 `foo`。在函数 `main` 内部，由于 JavaScript 的变量提升机制，变量 `foo` 会被提升到函数顶部但赋值会留在原地，因此在执行 `console.log('foo', foo)` 时，局部变量 `foo` 已经被声明但还未赋值，所以输出 `undefined`。*/
+    var m2 = new main(); 
+  </script>
+
+</body>
+
+</html>
