@@ -9,23 +9,36 @@
 
 <body>
   <script>
+    // var foo = 1
+    // function main () {
+    //   console.log('foo', foo) //undefined
+    //   var foo = 2
+    //   console.log('this.foo', this.foo) //1
+    //   this.foo = 3
+    //   // console.log('this.foo', this.foo)
+
+    // }
+    // // 请给出以下两种方式调用函数时，输出的结果，并说明原因。
+
+    // // var m1 = main()
+    // /*
+    // 当你调用 `main()` 时，它被当作一个普通的函数来调用，所以函数内部的 `this` 实际上是指向全局对象（在浏览器中即 `window`）。这就是为什么 `this.foo` 输出 `1`，因为 `var foo = 1` 实际上在全局声明了 `foo`。在函数 `main` 内部，由于 JavaScript 的变量提升机制，变量 `foo` 会被提升到函数顶部但赋值会留在原地，因此在执行 `console.log('foo', foo)` 时，局部变量 `foo` 已经被声明但还未赋值，所以输出 `undefined`。*/
+    // var m2 = new main(); 
+
+
     var foo = 1
     function main () {
-      var foo
-      console.log('foo', foo)
-      var foo = 2
-      console.log('foo', foo)
-      console.log('this.foo', this.foo)
-      this.foo = 3
-      console.log('this.foo', this.foo)
-
+      var foo // foo 在这里被声明，但尚未赋值，所以 foo 是 undefined
+      alert(foo) // undefined，因为 foo 尚未赋值
+      foo = 2 // foo 在这里被赋值
+      alert(this.foo) // undefined，因为这里的 this 指向一个新的空对象，它没有 foo 属性
+      this.foo = 3 // 这里给新的对象添加了 foo 属性，并赋值为 3
+      console.log(this.foo)
     }
-    // 请给出以下两种方式调用函数时，输出的结果，并说明原因。
-
-    // var m1 = main()
     /*
-    当你调用 `main()` 时，它被当作一个普通的函数来调用，所以函数内部的 `this` 实际上是指向全局对象（在浏览器中即 `window`）。这就是为什么 `this.foo` 输出 `1`，因为 `var foo = 1` 实际上在全局声明了 `foo`。在函数 `main` 内部，由于 JavaScript 的变量提升机制，变量 `foo` 会被提升到函数顶部但赋值会留在原地，因此在执行 `console.log('foo', foo)` 时，局部变量 `foo` 已经被声明但还未赋值，所以输出 `undefined`。*/
-    var m2 = new main(); 
+    当使用 new 关键字调用函数时，函数会被当作构造函数来执行，这时函数内部的 this 就不再指向全局对象，而是指向一个新创建的空对象，这个新创建的对象将作为函数的返回值。
+    */
+    var m2 = new main()
   </script>
 
 </body>
