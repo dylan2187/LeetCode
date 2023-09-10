@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    window.name = '小铭'
+    var name = '小红'
+    function fn () {
+      console.log(name)
+    }
+    function pringName (f) {
+      var name = '小兰'
+      f()
+    }
+    pringName(fn)
+  </script>
+</body>
+
+</html>
