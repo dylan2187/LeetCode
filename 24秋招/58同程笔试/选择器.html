@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      color: blue !important;
+    }
+
+    div>span {
+      color: green;
+    }
+
+    div span+span {
+      color: red;
+    }
+
+    span {
+      color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <span>选项一</span>
+    <span>选项二</span>
+    <span>选项三</span>
+  </div>
+</body>
+
+</html>
